@@ -26,9 +26,9 @@ export default function HomePage() {
         <img
           src="/assets/ready-space-band.png"
           alt="Casagrand commercial facade with the gold brand mark cut through the sky"
-          width={1728}
-          height={1146}
-          className="block aspect-[1728/1146] h-auto w-full bg-transparent object-cover object-center"
+          width={1024}
+          height={740}
+          className="block h-auto w-full bg-transparent object-contain object-top"
         />
       </main>
       <SiteFooter />
