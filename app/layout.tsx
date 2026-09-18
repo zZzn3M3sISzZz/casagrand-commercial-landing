@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   },
   description:
     "A curated portfolio of commercial developments created for ambitious businesses, progressive brands and long-term investors.",
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
