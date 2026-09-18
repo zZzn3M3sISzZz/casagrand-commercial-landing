@@ -1,20 +1,20 @@
 "use client";
 
-import { MediaFrame } from "@/components/media-frame";
+import { ParallaxFrame } from "@/components/parallax-frame";
 import { Reveal } from "@/components/reveal";
 
 export function HeroImage() {
   return (
     <section aria-label="Casagrand commercial destination" className="bg-canvas">
       <div className="mx-auto max-w-page px-gutter pb-4">
-        <MediaFrame
-          src="/images/hero-plaza.jpg"
-          alt="Evening view of a Casagrand commercial plaza with landscaped approach and glass facade"
-          width={2400}
-          height={1200}
+        <ParallaxFrame
+          src="/assets/hero-home.jpg"
+          alt="Sunset view of a Casagrand commercial tower entrance with a sculpted canopy and glass facade"
+          width={1330}
+          height={760}
           priority
-          kenBurns
-          className="aspect-[21/8] min-h-[280px] w-full"
+          className="mx-auto aspect-[1330/760] h-auto w-full max-w-[1330px]"
+          imgClassName="object-center"
         />
       </div>
     </section>
@@ -26,7 +26,7 @@ export function CommercialForward() {
     <section id="about" className="bg-canvas scroll-mt-24">
       <div className="mx-auto max-w-page px-gutter py-20 sm:py-28">
         <Reveal className="mx-auto max-w-[880px] text-center">
-          <h2 className="font-display text-[clamp(32px,4.2vw,56px)] leading-[1.15] text-ink">
+          <h2 className="font-display text-[clamp(32px,4.2vw,56px)] font-medium leading-[1.15] text-ink">
             Commercial spaces that
             <span className="block text-gold">move business forward.</span>
           </h2>
@@ -37,7 +37,7 @@ export function CommercialForward() {
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 sm:divide-x sm:divide-line">
             <div>
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-ink">
+              <p className="text-[13px] font-normal uppercase tracking-[0.16em] text-ink">
                 Chennai &amp; Coimbatore
               </p>
               <p className="mt-2 text-[12px] uppercase tracking-[0.12em] text-muted">
@@ -45,7 +45,7 @@ export function CommercialForward() {
               </p>
             </div>
             <div>
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-ink">
+              <p className="text-[13px] font-normal uppercase tracking-[0.16em] text-ink">
                 Grade-A &amp; Certified
               </p>
               <p className="mt-2 text-[12px] uppercase tracking-[0.12em] text-muted">

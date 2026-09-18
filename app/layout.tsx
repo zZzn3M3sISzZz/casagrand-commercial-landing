@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
+import { Lora } from "next/font/google";
 import { Header } from "@/components/header";
 import { EnquireProvider } from "@/components/enquire-dialog";
 import "./globals.css";
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-lora",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -18,8 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-canvas font-sans antialiased text-ink">
+    <html lang="en" className={lora.variable}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+        />
+      </head>
+      <body className="bg-canvas font-sans antialiased text-ink font-normal">
         <EnquireProvider>
           <a
             href="#main"

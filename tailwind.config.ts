@@ -20,8 +20,10 @@ const config: Config = {
         error: "var(--color-error)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-lora)", "Georgia", "serif"],
+        sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+        satoshi: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+        serif: ["var(--font-lora)", "Georgia", "serif"],
       },
       maxWidth: {
         page: "1728px",

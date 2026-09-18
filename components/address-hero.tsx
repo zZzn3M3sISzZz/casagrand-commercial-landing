@@ -1,63 +1,71 @@
 "use client";
 
 import { GoldButton } from "@/components/gold-button";
+import { ParallaxFrame } from "@/components/parallax-frame";
 import { PROJECTS } from "@/lib/projects";
 
 export function AddressHero() {
   const featured = PROJECTS.slice(0, 2);
 
   return (
-    <section className="bg-canvas">
-      <div className="mx-auto max-w-page px-gutter py-4 sm:py-6">
-        <div
-          data-header-theme="dark"
-          className="relative isolate overflow-hidden rounded-photo bg-charcoal text-white [transform:translateZ(0)]"
-        >
-          <div className="absolute inset-0">
-            <img
-              src="/images/building-dusk.jpg"
-              alt=""
-              width={2400}
-              height={1400}
-              className="size-full object-cover opacity-70 media-kenburns"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/20" />
-          </div>
-          <div className="relative grid gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-16 lg:py-28">
-            <div>
-              <h2 className="font-display text-[clamp(36px,4.6vw,64px)] leading-[1.12] text-gold">
-                An Address That
-                <br />
-                Means Business.
-              </h2>
-              <p className="mt-5 max-w-[460px] text-[16px] leading-[1.7] text-white/85">
-                Discover a premium commercial destination where architectural
-                presence, strategic connectivity and business possibilities come
-                together.
-              </p>
-              <div className="mt-10 flex flex-col gap-5">
+    <section data-header-theme="dark" className="relative w-full text-white">
+      <div className="relative w-full min-h-min lg:aspect-[1728/1025]">
+        <ParallaxFrame
+          src="/assets/address-business.jpg"
+          alt="Dusk view of a Casagrand commercial building along a city boulevard"
+          width={1728}
+          height={1025}
+          rounded={false}
+          className="absolute inset-0 size-full"
+          imgClassName="object-center"
+        />
+
+        <div className="relative z-10 grid h-full lg:grid-cols-[minmax(0,45.65%)_minmax(0,1fr)]">
+          <div className="flex h-full flex-col justify-center bg-black/70 px-6 py-10 sm:px-10 lg:justify-start lg:bg-black/80 lg:px-[clamp(24px,3.7vw,64px)] lg:py-[clamp(32px,4.5vw,64px)]">
+            <div className="flex w-full max-w-[653px] flex-col gap-6 lg:h-full lg:justify-between lg:gap-8">
+              <div className="flex flex-col gap-3 lg:gap-4">
+                <h2 className="font-display text-[clamp(28px,3.24vw,56px)] font-medium leading-[1.1] tracking-[-0.05em] text-[#fcbb55]">
+                  An Address That
+                  <br />
+                  Means Business.
+                </h2>
+                <p className="font-satoshi max-w-[640px] text-[24px] font-normal leading-[1.5] tracking-[-0.01em] text-white/70">
+                  Discover a premium commercial destination where architectural
+                  presence, strategic connectivity and business possibilities come
+                  together.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 lg:gap-4">
                 {featured.map((project) => (
                   <article
                     key={project.slug}
-                    className="rounded-sm border border-white/15 bg-white/5 p-5 backdrop-blur-sm"
+                    className="flex flex-col gap-3 rounded-lg border border-white/15 p-4 lg:gap-4 lg:p-5"
                   >
-                    <h3 className="text-[16px] font-semibold">{project.name}</h3>
-                    <p className="mt-2 text-[14px] leading-relaxed text-white/75">
-                      {project.summary}
-                    </p>
-                    <p className="mt-3 text-[11px] uppercase tracking-[0.12em] text-white/55">
-                      {project.specs}
-                    </p>
-                    <GoldButton href={`/#project-${project.slug}`} showArrow className="mt-4">
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="font-satoshi text-[24px] font-bold tracking-[-0.01em]">
+                        {project.name}
+                      </h3>
+                      <p className="font-satoshi text-[18px] font-normal leading-[1.5] text-[#f5f5f5]/70">
+                        {project.summary}
+                      </p>
+                      <p className="text-[10px] font-normal uppercase tracking-[0.1em] text-white/70">
+                        {project.specs}
+                      </p>
+                    </div>
+                    <GoldButton
+                      href={`/#project-${project.slug}`}
+                      showArrow
+                      className="!h-8 !min-h-8 w-fit !rounded !px-2 !py-1"
+                    >
                       Explore
                     </GoldButton>
                   </article>
                 ))}
               </div>
             </div>
-            <div className="hidden min-h-[420px] lg:block" aria-hidden />
           </div>
+          <div className="hidden lg:block" aria-hidden />
         </div>
       </div>
     </section>

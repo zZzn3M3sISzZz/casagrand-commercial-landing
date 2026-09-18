@@ -35,15 +35,12 @@ Figma + Casagrand brand assets override the generic teal recommendation.
 
 ### Typography
 
-- **Heading Font:** Playfair Display (matches Figma high-contrast serif, sentence case)
-- **Body / UI Font:** Outfit
-- **Mood:** luxury commercial real estate, premium, restrained
-- Generic Cinzel/Josefin pairing was superseded by Figma headline style.
+- **Heading Font:** Lora Medium (weight 500) — h1, h2, section display titles
+- **Body / UI Font:** Satoshi Regular (weight 400)
+- **Exception:** Address-hero project card titles use Satoshi Bold (700)
+- Site-wide: headings are Lora; all subtext (nav, body, buttons, forms, footer, legal) is Satoshi Regular.
 
-**CSS Import:**
-```css
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap");
-```
+**Loading:** Lora via `next/font/google`. Satoshi via Fontshare `satoshi@400,500,700`.
 
 ### Spacing Variables
 

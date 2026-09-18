@@ -43,7 +43,7 @@ export function SiteFooter() {
                 />
               </span>
             </a>
-            <p className="mt-6 text-[14px] font-semibold">Contact Details</p>
+            <p className="mt-6 text-[14px] font-normal">Contact Details</p>
             <p className="mt-2 text-[14px] leading-relaxed text-white/80">
               Phone:{" "}
               <a className="transition-opacity duration-tap hover:opacity-70" href="tel:+919047375555">
@@ -151,7 +151,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-[15px] font-semibold">{title}</p>
+      <p className="text-[15px] font-normal">{title}</p>
       <ul className="mt-4 flex flex-col gap-2.5 text-[14px] text-white/80">{children}</ul>
     </div>
   );

@@ -4,7 +4,7 @@ import {
   SquaresFour,
   Cpu,
 } from "@phosphor-icons/react/dist/ssr";
-import { MediaFrame } from "@/components/media-frame";
+import { ParallaxFrame } from "@/components/parallax-frame";
 import { Reveal } from "@/components/reveal";
 
 const AMENITIES = [
@@ -62,7 +62,7 @@ export function Workspaces() {
             {AMENITIES.map((item) => (
               <div key={item.title} className="border-t border-line pt-5">
                 <p>
-                  <strong className="font-medium text-ink">{item.title}</strong>{" "}
+                  <strong className="font-normal text-ink">{item.title}</strong>{" "}
                   {item.body}
                 </p>
               </div>
@@ -70,17 +70,17 @@ export function Workspaces() {
           </Reveal>
 
           <Reveal delay={1}>
-            <MediaFrame
-              src="/images/office-wellness.jpg"
-              alt="Professionals stretching together in a bright office wellness space"
-              width={900}
-              height={1100}
+            <ParallaxFrame
+              src="/assets/amenities-workspace.jpg"
+              alt="Three colleagues stretching together in a sunlit office"
+              width={815}
+              height={1024}
               className="aspect-[4/5] w-full"
             />
           </Reveal>
 
           <Reveal delay={2} className="lg:text-left">
-            <h2 className="font-display text-[clamp(32px,3.6vw,52px)] leading-[1.15] text-ink">
+            <h2 className="font-display text-[clamp(32px,3.6vw,52px)] font-medium leading-[1.15] text-ink">
               More Than Workspaces,{" "}
               <span className="text-gold">Thoughtfully Equipped.</span>
             </h2>
@@ -93,7 +93,7 @@ export function Workspaces() {
           {FOOTER.map((item) => (
             <div key={item.title} className="flex flex-col gap-3">
               <item.icon size={28} color="#E8B547" weight="regular" aria-hidden />
-              <h3 className="text-[16px] font-semibold text-ink">{item.title}</h3>
+              <h3 className="text-[16px] font-normal text-ink">{item.title}</h3>
               <p className="text-[14px] leading-relaxed text-muted">{item.body}</p>
             </div>
           ))}

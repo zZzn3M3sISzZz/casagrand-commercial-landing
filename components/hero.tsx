@@ -17,7 +17,7 @@ export function Hero() {
     <section className="bg-canvas pt-16">
       <div className="mx-auto flex max-w-page flex-col items-center justify-center px-gutter pb-10 pt-10 text-center sm:pb-14 sm:pt-16">
         <Reveal when="load">
-          <h1 className="font-display text-[clamp(36px,5.4vw,72px)] font-normal leading-[1.12] tracking-[-0.02em] text-ink">
+          <h1 className="font-display text-[clamp(36px,5.4vw,72px)] font-medium leading-[1.12] tracking-[-0.02em] text-ink">
             Spaces Built for Business.
             <span className="mt-1 block text-gold">Designed for What’s Next.</span>
           </h1>
@@ -49,7 +49,7 @@ export function Hero() {
                 height={94}
                 className="h-[52px] w-[16px] object-contain"
               />
-              <p className="min-w-[120px] text-[12px] font-medium uppercase leading-[1.35] tracking-[0.08em] text-ink">
+              <p className="min-w-[120px] text-[12px] font-normal uppercase leading-[1.35] tracking-[0.08em] text-ink">
                 {stat.value}
                 <br />
                 {stat.label}

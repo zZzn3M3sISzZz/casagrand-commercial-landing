@@ -23,6 +23,13 @@ export default function HomePage() {
         <Steps />
         <RightPlace />
         <ReadyCta />
+        <img
+          src="/assets/ready-space-band.png"
+          alt="Casagrand commercial facade with the gold brand mark cut through the sky"
+          width={1728}
+          height={1146}
+          className="block aspect-[1728/1146] h-auto w-full bg-transparent object-cover object-center"
+        />
       </main>
       <SiteFooter />
     </>

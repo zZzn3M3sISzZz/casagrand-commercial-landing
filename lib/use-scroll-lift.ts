@@ -6,12 +6,13 @@ type ScrollLiftOptions = {
   lift?: number;
   grow?: number;
   from?: number;
+  scale?: number;
 };
 
 export function useScrollLift(
   wrapRef: RefObject<HTMLElement | null>,
   frameRef: RefObject<HTMLElement | null>,
-  { lift = -36, grow = 0.04, from = 0 }: ScrollLiftOptions = {},
+  { lift = -36, grow = 0.04, from = 0, scale = 1 }: ScrollLiftOptions = {},
 ) {
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -19,10 +20,10 @@ export function useScrollLift(
     if (!wrap || !frame) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let targetY = 0;
-    let targetScale = 1;
-    let currentY = 0;
-    let currentScale = 1;
+    let targetY = from;
+    let targetScale = scale;
+    let currentY = from;
+    let currentScale = scale;
     let raf = 0;
 
     const apply = () => {
@@ -34,7 +35,7 @@ export function useScrollLift(
         Math.max(0, (start - rect.top) / Math.max(start - end, 1)),
       );
       targetY = from + progress * lift;
-      targetScale = 1 + progress * grow;
+      targetScale = scale + progress * grow;
     };
 
     const tick = () => {
@@ -48,7 +49,7 @@ export function useScrollLift(
       ) {
         raf = window.requestAnimationFrame(tick);
       } else {
-        frame.style.transform = `translate3d(0, ${targetY}px, 0) scale(${currentScale})`;
+        frame.style.transform = `translate3d(0, ${targetY}px, 0) scale(${targetScale})`;
         frame.style.willChange = "auto";
         raf = 0;
       }
@@ -69,5 +70,5 @@ export function useScrollLift(
       window.removeEventListener("resize", start);
       if (raf) window.cancelAnimationFrame(raf);
     };
-  }, [wrapRef, frameRef, lift, grow, from]);
+  }, [wrapRef, frameRef, lift, grow, from, scale]);
 }

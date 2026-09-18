@@ -16,7 +16,7 @@ export function LegalPage({
     <>
       <main id="main" className="bg-canvas">
         <article className="mx-auto max-w-content px-gutter pb-12 pt-28">
-          <h1 className="font-display text-[clamp(32px,4.5vw,48px)] leading-[1.15] text-ink">
+          <h1 className="font-display text-[clamp(32px,4.5vw,48px)] font-medium leading-[1.15] text-ink">
             {title}
           </h1>
           <p className="mt-3 text-sm text-muted">Last updated: {lastUpdated}</p>
@@ -42,7 +42,7 @@ export function LegalSection({
 }) {
   return (
     <section id={id} className="flex flex-col gap-3 scroll-mt-24">
-      <h2 className="text-[18px] font-semibold text-ink">{title}</h2>
+      <h2 className="font-display text-[18px] font-medium text-ink">{title}</h2>
       <div className="flex flex-col gap-3 text-muted [&_a]:text-ink [&_a]:underline [&_a]:underline-offset-2 [&_a]:transition-opacity [&_a]:duration-tap [&_a]:hover:opacity-70 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
         {children}
       </div>

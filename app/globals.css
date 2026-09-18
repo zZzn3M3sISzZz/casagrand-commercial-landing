@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-satoshi), system-ui, sans-serif;
+  --font-satoshi: "Satoshi", system-ui, sans-serif;
   --color-canvas: #ffffff;
   --color-ink: #161616;
   --color-gold: #d4a017;
@@ -49,7 +48,14 @@ body {
 
 body {
   min-height: 100dvh;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-satoshi), system-ui, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2 {
+  font-family: var(--font-lora), Georgia, serif;
+  font-weight: 500;
 }
 
 ::selection {

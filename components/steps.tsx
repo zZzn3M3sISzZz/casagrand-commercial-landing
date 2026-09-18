@@ -32,7 +32,7 @@ export function Steps() {
     <section className="bg-canvas">
       <div className="mx-auto grid max-w-page items-center gap-12 px-gutter py-16 lg:grid-cols-[1fr_0.9fr] lg:py-24">
         <Reveal>
-          <h2 className="font-display text-[clamp(32px,4vw,52px)] leading-[1.15] text-ink">
+          <h2 className="font-display text-[clamp(32px,4vw,52px)] font-medium leading-[1.15] text-ink">
             Find the Right Space
             <br />
             in a Few Steps.
@@ -49,7 +49,7 @@ export function Steps() {
                       aria-expanded={isOpen}
                       onClick={() => setOpen(isOpen ? -1 : index)}
                     >
-                      <span className="text-[18px] font-semibold text-ink">
+                      <span className="text-[18px] font-normal text-ink">
                         {step.title}
                       </span>
                       {isOpen ? (

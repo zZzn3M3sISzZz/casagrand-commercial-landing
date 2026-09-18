@@ -27,7 +27,7 @@ export function GoldButton({
   onClick,
 }: GoldButtonProps) {
   const classes = cn(
-    "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-[2px] px-5 py-2.5 text-[14px] font-medium tracking-[0.01em] transition-colors duration-tap",
+    "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-[2px] px-5 py-2.5 text-[14px] font-normal tracking-[0.01em] transition-colors duration-tap",
     variant === "fill"
       ? "bg-gold-soft text-ink hover:bg-gold"
       : onDark

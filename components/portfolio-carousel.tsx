@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Reveal } from "@/components/reveal";
+import { ParallaxFrame } from "@/components/parallax-frame";
 import { PROJECTS } from "@/lib/projects";
 import { cn } from "@/lib/cn";
 
@@ -41,7 +42,7 @@ export function PortfolioCarousel() {
     >
       <div className="mx-auto max-w-page px-gutter">
         <Reveal className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="font-display text-[clamp(32px,4.4vw,56px)] leading-[1.15]">
+          <h2 className="font-display text-[clamp(32px,4.4vw,56px)] font-medium leading-[1.15]">
             Explore Our <span className="text-gold">Commercial Portfolio</span>
           </h2>
           <p className="max-w-[320px] text-[15px] leading-relaxed text-white/75">
@@ -77,17 +78,14 @@ export function PortfolioCarousel() {
               data-card
               className="w-[min(517px,82vw)] shrink-0 snap-start scroll-mt-28"
             >
-              <div className="overflow-hidden rounded-photo bg-[#d9d9d9] [transform:translateZ(0)]">
-                <img
-                  src={project.image}
-                  alt={`${project.name} commercial development`}
-                  width={517}
-                  height={560}
-                  loading="lazy"
-                  className="aspect-[517/560] h-auto w-full object-cover transition-transform duration-[700ms] ease-out hover:scale-[1.04]"
-                />
-              </div>
-              <h3 className="mt-5 font-display text-[22px] text-white">{project.name}</h3>
+              <ParallaxFrame
+                src={project.image}
+                alt={`${project.name} commercial development`}
+                width={517}
+                height={560}
+                className="aspect-[517/560] w-full bg-[#d9d9d9]"
+              />
+              <h3 className="mt-5 text-[22px] font-normal text-white">{project.name}</h3>
               <p className="mt-1 text-[14px] text-white/65">{project.location}</p>
             </article>
           ))}

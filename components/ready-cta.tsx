@@ -1,7 +1,6 @@
 "use client";
 
 import { GoldButton } from "@/components/gold-button";
-import { MediaFrame } from "@/components/media-frame";
 import { Reveal } from "@/components/reveal";
 import { useEnquire } from "@/components/enquire-dialog";
 
@@ -12,7 +11,7 @@ export function ReadyCta() {
     <section>
       <div className="bg-canvas">
         <Reveal className="mx-auto grid max-w-page items-center gap-10 px-gutter py-16 lg:grid-cols-2 lg:py-20">
-          <h2 className="font-display text-[clamp(32px,4.2vw,56px)] leading-[1.15] text-ink">
+          <h2 className="font-display text-[clamp(32px,4.2vw,56px)] font-medium leading-[1.15] text-ink">
             Ready to find the <span className="text-gold">right space for your business?</span>
           </h2>
           <div>
@@ -29,18 +28,6 @@ export function ReadyCta() {
             </GoldButton>
           </div>
         </Reveal>
-      </div>
-      <div className="bg-canvas px-gutter pb-6">
-        <div className="mx-auto max-w-page">
-          <MediaFrame
-            src="/images/lobby-atrium.jpg"
-            alt="Grand commercial lobby with wood-slat ceiling and circular atrium"
-            width={2400}
-            height={1100}
-            kenBurns
-            className="aspect-[21/9] min-h-[280px] w-full"
-          />
-        </div>
       </div>
     </section>
   );
