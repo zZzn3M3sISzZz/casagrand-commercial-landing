@@ -5,7 +5,7 @@ import { CaretDown, List, X } from "@phosphor-icons/react";
 import { GoldButton } from "@/components/gold-button";
 import { useEnquire } from "@/components/enquire-dialog";
 import { cn } from "@/lib/cn";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS, projectHref } from "@/lib/projects";
 import { useHeaderOverDark } from "@/lib/use-header-over-dark";
 
 const NAV = [
@@ -156,7 +156,7 @@ export function Header() {
                     {PROJECTS.map((project) => (
                       <a
                         key={project.slug}
-                        href={`/#project-${project.slug}`}
+                        href={projectHref(project.slug)}
                         role="menuitem"
                         className="block px-4 py-2.5 text-[14px] text-ink transition-opacity duration-tap hover:opacity-70"
                         onClick={() => setProjectsOpen(false)}
@@ -226,7 +226,7 @@ export function Header() {
                     {PROJECTS.map((project) => (
                       <a
                         key={project.slug}
-                        href={`/#project-${project.slug}`}
+                        href={projectHref(project.slug)}
                         className="flex min-h-11 items-center text-[15px] text-ink/85"
                         onClick={() => setOpen(false)}
                       >

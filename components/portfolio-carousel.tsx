@@ -4,13 +4,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Reveal } from "@/components/reveal";
 import { ParallaxFrame } from "@/components/parallax-frame";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS, projectHref } from "@/lib/projects";
 import { cn } from "@/lib/cn";
 
 export function PortfolioCarousel() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const dragging = useRef<{ startX: number; startScroll: number } | null>(null);
+  const dragged = useRef(false);
 
   const go = useCallback((next: number) => {
     const node = scrollerRef.current;
@@ -54,6 +55,7 @@ export function PortfolioCarousel() {
           ref={scrollerRef}
           className="mt-12 flex cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto pb-4 active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           onPointerDown={(event) => {
+            dragged.current = false;
             dragging.current = {
               startX: event.clientX,
               startScroll: scrollerRef.current?.scrollLeft ?? 0,
@@ -61,8 +63,10 @@ export function PortfolioCarousel() {
           }}
           onPointerMove={(event) => {
             if (!dragging.current || !scrollerRef.current) return;
+            const delta = event.clientX - dragging.current.startX;
+            if (Math.abs(delta) > 8) dragged.current = true;
             scrollerRef.current.scrollLeft =
-              dragging.current.startScroll - (event.clientX - dragging.current.startX);
+              dragging.current.startScroll - delta;
           }}
           onPointerUp={() => {
             dragging.current = null;
@@ -78,15 +82,23 @@ export function PortfolioCarousel() {
               data-card
               className="w-[min(517px,82vw)] shrink-0 snap-start scroll-mt-28"
             >
-              <ParallaxFrame
-                src={project.image}
-                alt={`${project.name} commercial development`}
-                width={517}
-                height={560}
-                className="aspect-[517/560] w-full bg-[#d9d9d9]"
-              />
-              <h3 className="mt-5 text-[22px] font-normal text-white">{project.name}</h3>
-              <p className="mt-1 text-[14px] text-white/65">{project.location}</p>
+              <a
+                href={projectHref(project.slug)}
+                className="block rounded-photo outline-offset-4"
+                onClick={(event) => {
+                  if (dragged.current) event.preventDefault();
+                }}
+              >
+                <ParallaxFrame
+                  src={project.image}
+                  alt={`${project.name} commercial development`}
+                  width={517}
+                  height={560}
+                  className="aspect-[517/560] w-full bg-[#d9d9d9]"
+                />
+                <h3 className="mt-5 text-[22px] font-normal text-white">{project.name}</h3>
+                <p className="mt-1 text-[14px] text-white/65">{project.location}</p>
+              </a>
             </article>
           ))}
         </div>

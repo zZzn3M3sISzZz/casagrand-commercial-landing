@@ -15,15 +15,13 @@ export function ReadyCta() {
             Ready to find the <span className="text-gold">right space for your business?</span>
           </h2>
           <div>
-            <p className="font-satoshi text-[24px] font-medium leading-relaxed text-muted">
+            <p className="font-satoshi !text-[24px] !font-medium leading-relaxed text-muted">
               Casagrand Commercial creates thoughtfully planned office and retail
               destinations for businesses ready to grow.
             </p>
-            <p className="mt-4 text-muted">
-              <span className="font-satoshi !text-[18px] !font-medium leading-relaxed">
-                Explore our portfolio or connect with our leasing team to discover
-                the space that aligns with your ambition.
-              </span>
+            <p className="mt-4 font-satoshi !text-[24px] !font-medium leading-relaxed text-muted">
+              Explore our portfolio or connect with our leasing team to discover
+              the space that aligns with your ambition.
             </p>
             <GoldButton showArrow className="mt-8" onClick={openEnquire}>
               Enquire Now

@@ -1,4 +1,4 @@
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS, projectHref } from "@/lib/projects";
 
 const COMPANY = [
   { href: "/#about", label: "About Us" },
@@ -80,7 +80,7 @@ export function SiteFooter() {
             {PROJECTS.map((project) => (
               <li key={project.slug}>
                 <a
-                  href={`/#project-${project.slug}`}
+                  href={projectHref(project.slug)}
                   className="transition-opacity duration-tap hover:opacity-70"
                 >
                   {project.name}

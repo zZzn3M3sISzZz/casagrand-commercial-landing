@@ -2,7 +2,7 @@
 
 import { GoldButton } from "@/components/gold-button";
 import { ParallaxFrame } from "@/components/parallax-frame";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS, projectHref } from "@/lib/projects";
 
 export function AddressHero() {
   const featured = PROJECTS.slice(0, 2);
@@ -54,7 +54,7 @@ export function AddressHero() {
                       </p>
                     </div>
                     <GoldButton
-                      href={`/#project-${project.slug}`}
+                      href={projectHref(project.slug)}
                       showArrow
                       className="!h-8 !min-h-8 w-fit !rounded !px-2 !py-1"
                     >
