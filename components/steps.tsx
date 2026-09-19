@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Minus, Plus } from "@phosphor-icons/react";
 import { GoldButton } from "@/components/gold-button";
 import { Reveal } from "@/components/reveal";
-import { cn } from "@/lib/cn";
 
 const STEPS = [
   {
@@ -30,7 +29,7 @@ export function Steps() {
 
   return (
     <section className="bg-canvas">
-      <div className="mx-auto grid max-w-page items-center gap-12 px-gutter py-16 lg:grid-cols-[1fr_0.9fr] lg:py-24">
+      <div className="mx-auto grid max-w-page items-start gap-12 px-gutter py-16 lg:grid-cols-[1fr_0.9fr] lg:py-24">
         <Reveal>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-medium leading-[1.15] text-ink">
             Find the Right Space
@@ -59,14 +58,13 @@ export function Steps() {
                       )}
                     </button>
                   </h3>
-                  <div className="accordion-body" data-open={isOpen}>
+                  <div
+                    className="accordion-body"
+                    data-open={isOpen}
+                    aria-hidden={!isOpen}
+                  >
                     <div>
-                      <p
-                        className={cn(
-                          "pb-4 text-[14px] leading-relaxed text-muted",
-                          !isOpen && "sr-only",
-                        )}
-                      >
+                      <p className="pb-4 text-[14px] leading-relaxed text-muted">
                         {step.body}
                       </p>
                     </div>
@@ -83,13 +81,16 @@ export function Steps() {
             Explore All Projects
           </GoldButton>
         </Reveal>
-        <Reveal delay={1} className="relative min-h-[280px] overflow-visible bg-transparent lg:min-h-[560px]">
+        <Reveal
+          delay={1}
+          className="relative min-h-[280px] overflow-visible bg-transparent lg:sticky lg:top-28 lg:min-h-[560px] lg:self-start"
+        >
           <img
             src="/assets/logo-find-space.png"
             alt=""
             width={1024}
             height={1023}
-            className="ml-auto aspect-square h-auto w-full max-w-[560px] bg-transparent object-contain object-right lg:absolute lg:right-0 lg:top-1/2 lg:max-w-none lg:w-[min(100%,580px)] lg:-translate-y-1/2"
+            className="ml-auto aspect-square h-auto w-full max-w-[560px] bg-transparent object-contain object-right lg:absolute lg:right-0 lg:top-0 lg:max-w-none lg:w-[min(100%,580px)]"
           />
         </Reveal>
       </div>

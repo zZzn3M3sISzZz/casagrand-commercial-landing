@@ -61,7 +61,7 @@ export function Workspaces() {
             </p>
             {AMENITIES.map((item) => (
               <div key={item.title} className="border-t border-line pt-5">
-                <p>
+                <p className="font-satoshi text-[18px] font-normal">
                   <strong className="font-normal text-ink">{item.title}</strong>{" "}
                   {item.body}
                 </p>
@@ -93,8 +93,8 @@ export function Workspaces() {
           {FOOTER.map((item) => (
             <div key={item.title} className="flex flex-col gap-3">
               <item.icon size={28} color="#E8B547" weight="regular" aria-hidden />
-              <h3 className="text-[16px] font-normal text-ink">{item.title}</h3>
-              <p className="text-[14px] leading-relaxed text-muted">{item.body}</p>
+              <h3 className="font-satoshi text-[24px] font-bold text-ink">{item.title}</h3>
+              <p className="font-satoshi text-[18px] font-medium leading-relaxed text-muted">{item.body}</p>
             </div>
           ))}
         </Reveal>

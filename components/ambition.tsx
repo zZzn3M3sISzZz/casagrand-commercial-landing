@@ -16,20 +16,20 @@ export function Ambition() {
           </p>
           <div className="mt-12 flex flex-col gap-8">
             <div>
-              <h3 className="text-[16px] font-normal text-ink">
+              <h3 className="font-satoshi text-[24px] font-bold text-ink">
                 Workspaces Built to Perform
               </h3>
-              <p className="mt-2 max-w-[420px] text-[14px] leading-relaxed text-muted">
+              <p className="mt-2 max-w-[420px] font-satoshi text-[18px] font-normal leading-relaxed text-muted">
                 Flexible floor plates, intelligent planning and modern
                 infrastructure create efficient environments for businesses of
                 every scale.
               </p>
             </div>
             <div>
-              <h3 className="text-[16px] font-normal text-ink">
+              <h3 className="font-satoshi text-[24px] font-bold text-ink">
                 Workdays Designed Around People
               </h3>
-              <p className="mt-2 max-w-[420px] text-[14px] leading-relaxed text-muted">
+              <p className="mt-2 max-w-[420px] font-satoshi text-[18px] font-normal leading-relaxed text-muted">
                 Wellness spaces, dining, collaboration zones and everyday
                 conveniences create a more complete workplace experience.
               </p>

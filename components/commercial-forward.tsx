@@ -30,10 +30,14 @@ export function CommercialForward() {
             Commercial spaces that
             <span className="block text-gold">move business forward.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-[640px] text-[16px] leading-[1.7] text-muted">
-            From intelligent planning and modern infrastructure to strategic
-            locations, every Casagrand commercial development is created to
-            support lasting business growth.
+          <p className="font-satoshi mx-auto mt-6 text-[24px] font-medium leading-[1.7] text-muted">
+            <span className="whitespace-nowrap max-md:whitespace-normal">
+              From intelligent planning and modern infrastructure to strategic
+              locations, every
+            </span>
+            <br />
+            Casagrand commercial development is created to support lasting
+            business growth.
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 sm:divide-x sm:divide-line">
             <div>

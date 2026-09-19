@@ -26,15 +26,15 @@ export function RightPlace() {
         </Reveal>
         <Reveal delay={2} className="flex flex-col gap-10">
           <div>
-            <h3 className="text-[16px] font-normal text-ink">Built for Businesses</h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-muted">
+            <h3 className="font-satoshi text-[24px] font-bold text-ink">Built for Businesses</h3>
+            <p className="mt-2 font-satoshi text-[18px] font-normal leading-relaxed text-muted">
               Flexible office and retail spaces designed around different
               operational needs and growth ambitions.
             </p>
           </div>
           <div className="border-t border-line pt-8">
-            <h3 className="text-[16px] font-normal text-ink">Positioned for Growth</h3>
-            <p className="mt-2 text-[14px] leading-relaxed text-muted">
+            <h3 className="font-satoshi text-[24px] font-bold text-ink">Positioned for Growth</h3>
+            <p className="mt-2 font-satoshi text-[18px] font-normal leading-relaxed text-muted">
               Strategic locations, modern infrastructure and thoughtfully planned
               environments that support long-term business potential.
             </p>
