@@ -24,7 +24,11 @@ export function ProductNext({ project }: { project: Project }) {
             <p>{project.nextCopy[0]}</p>
             <p className="mt-6">{project.nextCopy[1]}</p>
           </div>
-          <GoldButton showArrow onClick={openEnquire} className="!h-14 !min-h-14 !rounded !px-6">
+          <GoldButton
+            showArrow
+            onClick={() => openEnquire(project.slug)}
+            className="!h-14 !min-h-14 !rounded !px-6"
+          >
             Enquire Now
           </GoldButton>
         </div>

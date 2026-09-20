@@ -1,8 +1,8 @@
 import { PROJECTS, projectHref } from "@/lib/projects";
 
 const COMPANY = [
-  { href: "/#about", label: "About Us" },
-  { href: "/#portfolio", label: "Our Projects" },
+  { href: "/about", label: "About Us" },
+  { href: "/projects", label: "Our Projects" },
   { href: "/#advantage", label: "Commercial Advantage" },
   { href: "/#advantage", label: "Amenities" },
   { href: "/#portfolio", label: "Gallery" },

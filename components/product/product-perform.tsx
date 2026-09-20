@@ -19,10 +19,10 @@ export function ProductPerform({ project }: { project: Project }) {
         <Reveal delay={1} className="flex w-full max-w-[517px] flex-col justify-between gap-16 self-stretch lg:min-h-[696px]">
           <div className="flex flex-col gap-4">
             <h2 className="font-display text-[clamp(36px,4vw,56px)] font-medium leading-[1.1] tracking-[-0.05em] text-[#0a0a0a]">
-              Space to Perform.
+              {project.performTitle[0]}
               <span className="text-[#fcbb55]">
                 <br />
-                Room to Thrive.
+                {project.performTitle[1]}
               </span>
             </h2>
             <p className="font-satoshi text-[24px] font-medium leading-[1.5] tracking-[-0.01em] text-[#1b1b1b]/70">

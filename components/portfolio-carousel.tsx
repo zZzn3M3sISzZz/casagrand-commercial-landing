@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Reveal } from "@/components/reveal";
 import { ParallaxFrame } from "@/components/parallax-frame";
-import { PROJECTS, projectHref } from "@/lib/projects";
+import { PORTFOLIO_RETURN_KEY, PROJECTS, projectHref } from "@/lib/projects";
 import { cn } from "@/lib/cn";
 
 export function PortfolioCarousel() {
@@ -33,6 +33,40 @@ export function PortfolioCarousel() {
     };
     node.addEventListener("scroll", onScroll, { passive: true });
     return () => node.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const revealPortfolio = () => {
+      const hash = window.location.hash.replace(/^#/, "");
+      let slug = "";
+      try {
+        slug = sessionStorage.getItem(PORTFOLIO_RETURN_KEY) ?? "";
+        if (slug) sessionStorage.removeItem(PORTFOLIO_RETURN_KEY);
+      } catch {
+        slug = "";
+      }
+
+      if (hash !== "portfolio" && !slug) return;
+
+      document.getElementById("portfolio")?.scrollIntoView({ block: "start" });
+
+      const next = PROJECTS.findIndex((project) => project.slug === slug);
+      if (next < 0) return;
+
+      const node = scrollerRef.current;
+      const card = node?.querySelector<HTMLElement>("[data-card]");
+      if (!node || !card) return;
+      const width = card.offsetWidth + 24;
+      node.scrollTo({ left: next * width, behavior: "auto" });
+      setIndex(next);
+    };
+
+    const timer = window.setTimeout(revealPortfolio, 80);
+    window.addEventListener("hashchange", revealPortfolio);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", revealPortfolio);
+    };
   }, []);
 
   return (

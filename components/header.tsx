@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { CaretDown, List, X } from "@phosphor-icons/react";
 import { GoldButton } from "@/components/gold-button";
 import { useEnquire } from "@/components/enquire-dialog";
@@ -10,8 +11,8 @@ import { useHeaderOverDark } from "@/lib/use-header-over-dark";
 
 const NAV = [
   { href: "/", label: "Home" },
-  { href: "/#portfolio", label: "Projects", hasMenu: true },
-  { href: "/#about", label: "About Us" },
+  { href: "/projects", label: "Projects", hasMenu: true },
+  { href: "/about", label: "About Us" },
   { href: "/#advantage", label: "Commercial Advantage" },
 ] as const;
 
@@ -32,6 +33,10 @@ function Chevron({ open, onDark }: { open: boolean; onDark: boolean }) {
 
 export function Header() {
   const { openEnquire } = useEnquire();
+  const pathname = usePathname();
+  const pageProjectSlug = pathname.startsWith("/projects/")
+    ? pathname.split("/")[2]
+    : undefined;
   const headerRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -183,7 +188,7 @@ export function Header() {
           <GoldButton href="/#contact" variant="outline" onDark={overDark}>
             Contact
           </GoldButton>
-          <GoldButton showArrow onDark={overDark} onClick={openEnquire}>
+          <GoldButton showArrow onDark={overDark} onClick={() => openEnquire(pageProjectSlug)}>
             Enquire Now
           </GoldButton>
         </div>
@@ -255,7 +260,7 @@ export function Header() {
               showArrow
               onClick={() => {
                 setOpen(false);
-                openEnquire();
+                openEnquire(pageProjectSlug);
               }}
             >
               Enquire Now

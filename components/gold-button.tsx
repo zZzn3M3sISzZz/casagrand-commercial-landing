@@ -45,8 +45,15 @@ export function GoldButton({
   );
 
   if (href) {
+    const external = href.startsWith("http");
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a
+        href={href}
+        className={classes}
+        onClick={onClick}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+      >
         {content}
       </a>
     );

@@ -16,7 +16,7 @@ import { PROJECTS } from "@/lib/projects";
 
 type EnquireContextValue = {
   open: boolean;
-  openEnquire: () => void;
+  openEnquire: (projectSlug?: string) => void;
   closeEnquire: () => void;
 };
 
@@ -30,7 +30,11 @@ export function useEnquire() {
 
 export function EnquireProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  const openEnquire = useCallback(() => setOpen(true), []);
+  const [projectSlug, setProjectSlug] = useState("");
+  const openEnquire = useCallback((slug?: string) => {
+    setProjectSlug(slug ?? "");
+    setOpen(true);
+  }, []);
   const closeEnquire = useCallback(() => setOpen(false), []);
   const value = useMemo(
     () => ({ open, openEnquire, closeEnquire }),
@@ -40,14 +44,14 @@ export function EnquireProvider({ children }: { children: React.ReactNode }) {
   return (
     <EnquireContext.Provider value={value}>
       {children}
-      <EnquireDialog />
+      <EnquireDialog projectSlug={projectSlug} />
     </EnquireContext.Provider>
   );
 }
 
 type FieldErrors = Partial<Record<"name" | "email" | "phone" | "message", string>>;
 
-function EnquireDialog() {
+function EnquireDialog({ projectSlug }: { projectSlug: string }) {
   const { open, closeEnquire } = useEnquire();
   const titleId = useId();
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
@@ -78,8 +82,9 @@ function EnquireDialog() {
     if (open) {
       setStatus("idle");
       setErrors({});
+      setForm((prev) => ({ ...prev, project: projectSlug }));
     }
-  }, [open]);
+  }, [open, projectSlug]);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
