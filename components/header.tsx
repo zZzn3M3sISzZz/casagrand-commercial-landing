@@ -13,7 +13,7 @@ const NAV = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects", hasMenu: true },
   { href: "/about", label: "About Us" },
-  { href: "/#advantage", label: "Commercial Advantage" },
+  { href: "/about#advantage", label: "Commercial Advantage" },
 ] as const;
 
 function Chevron({ open, onDark }: { open: boolean; onDark: boolean }) {
@@ -185,7 +185,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 xl:flex">
-          <GoldButton href="/#contact" variant="outline" onDark={overDark}>
+          <GoldButton href="/about#contact" variant="outline" onDark={overDark}>
             Contact
           </GoldButton>
           <GoldButton showArrow onDark={overDark} onClick={() => openEnquire(pageProjectSlug)}>
@@ -253,7 +253,7 @@ export function Header() {
             ),
           )}
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-            <GoldButton href="/#contact" variant="outline" onClick={() => setOpen(false)}>
+            <GoldButton href="/about#contact" variant="outline" onClick={() => setOpen(false)}>
               Contact
             </GoldButton>
             <GoldButton

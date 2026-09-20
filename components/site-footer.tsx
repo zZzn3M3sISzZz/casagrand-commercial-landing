@@ -3,17 +3,14 @@ import { PROJECTS, projectHref } from "@/lib/projects";
 const COMPANY = [
   { href: "/about", label: "About Us" },
   { href: "/projects", label: "Our Projects" },
-  { href: "/#advantage", label: "Commercial Advantage" },
-  { href: "/#advantage", label: "Amenities" },
-  { href: "/#portfolio", label: "Gallery" },
-  { href: "https://www.casagrand.co.in/careers", label: "Careers", external: true },
-  { href: "/#contact", label: "Contact Us" },
+  { href: "/about#advantage", label: "Commercial Advantage" },
+  { href: "/about#contact", label: "Contact Us" },
 ];
 
 const INFORMATION = [
   { href: "/#portfolio", label: "Download Brochures" },
-  { href: "/#contact", label: "Schedule a Visit" },
-  { href: "/#contact", label: "Leasing Enquiries" },
+  { href: "/about#contact", label: "Schedule a Visit" },
+  { href: "/about#contact", label: "Leasing Enquiries" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms & Conditions" },
   { href: "/terms#disclaimer", label: "Disclaimer" },
@@ -95,9 +92,6 @@ export function SiteFooter() {
                 <a
                   href={item.href}
                   className="transition-opacity duration-tap hover:opacity-70"
-                  {...("external" in item && item.external
-                    ? { target: "_blank", rel: "noreferrer" }
-                    : {})}
                 >
                   {item.label}
                 </a>
