@@ -83,7 +83,7 @@ export function Header() {
   }, [open]);
 
   const navClass = cn(
-    "transition-colors duration-tap",
+    "font-satoshi text-[15px] font-medium transition-colors duration-tap",
     overDark ? "text-white hover:opacity-80" : "text-ink hover:opacity-70",
   );
 
@@ -139,7 +139,7 @@ export function Header() {
                 <button
                   type="button"
                   className={cn(
-                    "inline-flex min-h-11 items-center gap-1.5 px-3 py-2 text-[14px]",
+                    "inline-flex min-h-11 items-center gap-1.5 px-3 py-2",
                     navClass,
                   )}
                   aria-expanded={projectsOpen}
@@ -176,7 +176,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className={cn("px-3 py-2 text-[14px]", navClass)}
+                className={cn("px-3 py-2", navClass)}
               >
                 {item.label}
               </a>
@@ -219,7 +219,7 @@ export function Header() {
               <div key={item.label}>
                 <button
                   type="button"
-                  className="flex min-h-11 w-full items-center justify-between text-base text-ink"
+                  className="flex min-h-11 w-full items-center justify-between font-satoshi text-[15px] font-medium text-ink"
                   aria-expanded={mobileProjectsOpen}
                   onClick={() => setMobileProjectsOpen((value) => !value)}
                 >
@@ -245,7 +245,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="flex min-h-11 items-center text-base text-ink"
+                className="flex min-h-11 items-center font-satoshi text-[15px] font-medium text-ink"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
