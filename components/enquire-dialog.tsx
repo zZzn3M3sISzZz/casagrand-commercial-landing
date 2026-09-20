@@ -56,6 +56,7 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
   const titleId = useId();
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -63,6 +64,7 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
     company: "",
     project: "",
     message: "",
+    website: "",
   });
 
   useEffect(() => {
@@ -82,11 +84,12 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
     if (open) {
       setStatus("idle");
       setErrors({});
+      setSubmitError("");
       setForm((prev) => ({ ...prev, project: projectSlug }));
     }
   }, [open, projectSlug]);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: FieldErrors = {};
     if (!form.name.trim()) next.name = "Enter your name.";
@@ -98,9 +101,26 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
     }
     if (!form.message.trim()) next.message = "Tell us what you are looking for.";
     setErrors(next);
+    setSubmitError("");
     if (Object.keys(next).length) return;
+
     setStatus("submitting");
-    window.setTimeout(() => setStatus("success"), 500);
+    try {
+      const response = await fetch("/api/enquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!response.ok) {
+        throw new Error("send-failed");
+      }
+      setStatus("success");
+    } catch {
+      setStatus("idle");
+      setSubmitError(
+        "Could not send your enquiry. Please email leasing@casagrand.co.in or try again.",
+      );
+    }
   };
 
   if (!open) return null;
@@ -140,6 +160,18 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
           </p>
         ) : (
           <form className="mt-6 flex flex-col gap-4" onSubmit={onSubmit} noValidate>
+            <div aria-hidden className="hidden">
+              <label htmlFor="enquire-website">Website</label>
+              <input
+                id="enquire-website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.website}
+                onChange={(event) =>
+                  setForm((prev) => ({ ...prev, website: event.target.value }))
+                }
+              />
+            </div>
             <Field
               id="enquire-name"
               label="Full name"
@@ -214,6 +246,11 @@ function EnquireDialog({ projectSlug }: { projectSlug: string }) {
                 </p>
               ) : null}
             </div>
+            {submitError ? (
+              <p className="text-sm text-error" role="alert">
+                {submitError}
+              </p>
+            ) : null}
             <GoldButton type="submit" showArrow disabled={status === "submitting"}>
               {status === "submitting" ? "Sending…" : "Submit enquiry"}
             </GoldButton>
