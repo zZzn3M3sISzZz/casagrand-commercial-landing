@@ -23,7 +23,7 @@ export function ReadyCta() {
               Explore our portfolio or connect with our leasing team to discover
               the space that aligns with your ambition.
             </p>
-            <GoldButton showArrow className="mt-8" onClick={openEnquire}>
+            <GoldButton showArrow className="mt-8" onClick={() => openEnquire()}>
               Enquire Now
             </GoldButton>
           </div>

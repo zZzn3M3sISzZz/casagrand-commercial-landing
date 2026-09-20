@@ -19,7 +19,7 @@ export function AboutLegacy() {
             Share your requirements with our commercial team and discover an
             office or retail space aligned with your next stage of growth.
           </p>
-          <GoldButton showArrow onClick={openEnquire} className="!h-14 !min-h-14 !rounded !px-6">
+          <GoldButton showArrow onClick={() => openEnquire()} className="!h-14 !min-h-14 !rounded !px-6">
             Enquire Now
           </GoldButton>
         </div>

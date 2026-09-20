@@ -32,7 +32,7 @@ export function Hero() {
           <GoldButton href="/#portfolio" showArrow>
             Explore Our Projects
           </GoldButton>
-          <GoldButton variant="outline" onClick={openEnquire}>
+          <GoldButton variant="outline" onClick={() => openEnquire()}>
             Enquire Now
           </GoldButton>
         </Reveal>
