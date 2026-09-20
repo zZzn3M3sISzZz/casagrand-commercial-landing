@@ -1,5 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import { ParallaxFrame } from "@/components/parallax-frame";
 import { Reveal } from "@/components/reveal";
+
+const PHOTO_COLS = ["1fr 1fr 1fr", "1.22fr 0.89fr 0.89fr", "0.89fr 1.22fr 0.89fr", "0.89fr 0.89fr 1.22fr"] as const;
 
 const AMENITIES = [
   {
@@ -44,6 +49,9 @@ const PHOTOS = [
 ];
 
 export function AboutWorkplace() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const photoCols = PHOTO_COLS[hovered === null ? 0 : hovered + 1];
+
   return (
     <section
       id="workplace"
@@ -70,15 +78,25 @@ export function AboutWorkplace() {
             <div className="border-t border-white/10" />
           </div>
 
-          <div className="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-3">
-            {PHOTOS.map((photo) => (
+          <div
+            className="grid flex-1 grid-cols-1 gap-4 sm:h-[min(640px,68vh)] sm:grid-cols-[var(--photo-cols)] sm:transition-[grid-template-columns] sm:duration-500 sm:ease-out"
+            style={{ ["--photo-cols" as string]: photoCols }}
+          >
+            {PHOTOS.map((photo, index) => (
               <ParallaxFrame
                 key={photo.src}
                 src={photo.src}
                 alt={photo.alt}
                 width={378}
                 height={648}
-                className="aspect-[378/648] w-full bg-[#f5f5f5]"
+                interactive
+                className="workplace-photo aspect-[378/648] min-w-0 w-full bg-[#161616] sm:aspect-auto sm:h-full"
+                onPointerEnter={() => setHovered(index)}
+                onPointerLeave={(event) => {
+                  const next = event.relatedTarget as Node | null;
+                  if (next && event.currentTarget.parentElement?.contains(next)) return;
+                  setHovered(null);
+                }}
               />
             ))}
           </div>

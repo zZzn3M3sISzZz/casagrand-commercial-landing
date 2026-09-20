@@ -7,14 +7,16 @@ type ScrollLiftOptions = {
   grow?: number;
   from?: number;
   scale?: number;
+  enabled?: boolean;
 };
 
 export function useScrollLift(
   wrapRef: RefObject<HTMLElement | null>,
   frameRef: RefObject<HTMLElement | null>,
-  { lift = -36, grow = 0.04, from = 0, scale = 1 }: ScrollLiftOptions = {},
+  { lift = -36, grow = 0.04, from = 0, scale = 1, enabled = true }: ScrollLiftOptions = {},
 ) {
   useEffect(() => {
+    if (!enabled) return;
     const wrap = wrapRef.current;
     const frame = frameRef.current;
     if (!wrap || !frame) return;
@@ -70,5 +72,5 @@ export function useScrollLift(
       window.removeEventListener("resize", start);
       if (raf) window.cancelAnimationFrame(raf);
     };
-  }, [wrapRef, frameRef, lift, grow, from, scale]);
+  }, [wrapRef, frameRef, lift, grow, from, scale, enabled]);
 }
