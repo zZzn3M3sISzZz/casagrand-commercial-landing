@@ -54,14 +54,14 @@ export function Workspaces() {
     <section className="bg-canvas">
       <div className="mx-auto max-w-page px-gutter py-20 sm:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr_0.9fr] lg:gap-10">
-          <Reveal className="flex flex-col gap-6 text-[15px] leading-[1.65] text-muted">
-            <p>
+          <Reveal className="flex flex-col gap-6 text-muted">
+            <p className="font-satoshi text-[18px] font-normal leading-[1.65]">
               Amenities designed to support productivity, well-being,
               collaboration and everyday convenience.
             </p>
             {AMENITIES.map((item) => (
               <div key={item.title} className="border-t border-line pt-5">
-                <p className="font-satoshi text-[18px] font-normal">
+                <p className="font-satoshi text-[18px] font-normal leading-[1.65]">
                   <strong className="font-normal text-ink">{item.title}</strong>{" "}
                   {item.body}
                 </p>

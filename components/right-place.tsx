@@ -19,8 +19,8 @@ export function RightPlace() {
           <ParallaxFrame
             src="/images/conference.jpg"
             alt="Long conference table in a Casagrand commercial workspace with yellow chairs and hanging plants"
-            width={1200}
-            height={1500}
+            width={759}
+            height={1024}
             className="aspect-[3/4] w-full"
           />
         </Reveal>
