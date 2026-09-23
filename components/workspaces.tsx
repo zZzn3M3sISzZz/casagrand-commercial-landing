@@ -29,7 +29,7 @@ const AMENITIES = [
 const FOOTER = [
   {
     icon: Buildings,
-    title: "8 Commercial Projects",
+    title: "7 Commercial Projects",
     body: "A growing portfolio of thoughtfully planned business destinations",
   },
   {

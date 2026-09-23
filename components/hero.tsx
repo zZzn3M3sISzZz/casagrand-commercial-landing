@@ -5,7 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { useEnquire } from "@/components/enquire-dialog";
 
 const STATS = [
-  { value: "8 COMMERCIAL", label: "PROJECTS" },
+  { value: "7 COMMERCIAL", label: "PROJECTS" },
   { value: "STRATEGIC", label: "LOCATIONS" },
   { value: "FUTURE-READY", label: "SPACES" },
 ];

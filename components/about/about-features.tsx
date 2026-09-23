@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal";
 
 const FEATURES = [
   {
-    title: "8 Commercial Projects",
+    title: "7 Commercial Projects",
     body: "A growing portfolio of office and retail destinations",
   },
   {

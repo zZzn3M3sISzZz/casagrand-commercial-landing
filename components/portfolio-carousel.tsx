@@ -81,7 +81,7 @@ export function PortfolioCarousel() {
             Explore Our <span className="text-gold">Commercial Portfolio</span>
           </h2>
           <p className="max-w-[320px] text-[15px] leading-relaxed text-white/75">
-            Eight distinctive destinations. One vision for better business.
+            Seven distinctive destinations. One vision for better business.
           </p>
         </Reveal>
 
